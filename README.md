@@ -13,7 +13,7 @@ Possui a documentação do banco. Contém relacionamentos `n:n`.
 - Emilly Vitória Antônio de Lima
 - Gabriel Washington Freitas Ribeiro
 - Gilmar Alves de Oliveira Neto
-- Guilherme Saraiva Silva
+- Guilherme Saraiva Silva[@guilherminho2122](https://github.com/guilherminho2122) 😈​
 - Gustavo Henrique Silveira Rezende
 - Hiago Cândido de Oliveira
 - Humberto Eugênio Rocha de Souza
