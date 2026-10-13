@@ -6,23 +6,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+        <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 30px 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
         div {
             border-style: solid;
             padding: 10px;
         }
 
         .postagens {
-            border-color: blue;
+            border: none;
+            max-width: 500px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 0;
         }
 
         .postagem {
-            border-color: black;
-            margin: 10px;
+            border: 1px solid #e0e0e0;
+            margin: 0 0 15px 0;
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .postagem img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            object-fit: cover;
+        }
+
+        .nome-autor {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .horario {
+            border: none;
+            padding: 0;
+            font-size: 0.8em;
+            color: #999;
+            margin-top: 8px;
         }
 
         .comentarios {
-            border-color: green;
+            border: none;
+            border-top: 1px solid #eee;
+            margin-top: 12px;
+            padding: 10px 0 0 0;
+            background: transparent;
+        }
+
+        .comentarios img {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 8px;
+            border: 1px solid #ddd;
+            object-fit: cover;
+        }
+
+        .comentarios > div {
+            border: none;
+            background: #f5f5f5;
+            border-radius: 16px;
+            padding: 8px 12px;
+            margin: 6px 0;
+            display: block;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .sem-comentarios {
+            border: none;
+            color: #aaa;
+            background: transparent;
+            font-style: italic;
+            font-size: 0.85em;
+            margin-top: 12px;
+            padding: 0;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .comentarios form {
+            border: none;
+            padding: 0;
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .comentarios input[type="text"] {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            outline: none;
+            font-size: 0.85em;
+            background: #fafafa;
+        }
+
+        .comentarios input[type="text"]:focus {
+            border-color: #999;
+        }
+
+        .comentarios input[type="submit"] {
+            padding: 8px 16px;
+            background: #666;
+            color: white;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            font-size: 0.85em;
+        }
+
+        .comentarios input[type="submit"]:hover {
+            background: #444;
         }
     </style>
 </head>
