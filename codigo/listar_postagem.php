@@ -78,7 +78,6 @@
 
                 while ($comentario = mysqli_fetch_array($comentarios)) {
                     $idusuario_comentario = $comentario['idusuario'];
-                    
                     $texto_comentario = $comentario['texto'];
 
                     $foto_usuario_comentario = $comentario['foto'];
@@ -89,8 +88,9 @@
                     echo "</div>";
                 }
         ?>
-                <form action="salvar_comentario.php">
-                    <input type="text">
+                <form action="salvar_comentario.php" method="post">
+                    <input type="hidden" name="idpostagem" value="<?php echo $idpostagem; ?>">
+                    <input type="text" name="texto" placeholder="Escreva um comentário..." required>
                     <input type="submit" value="Comentar">
                 </form>
 
