@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        <style>
         * {
             box-sizing: border-box;
         }
@@ -195,6 +193,7 @@
                 echo "<br>Essa postagem não possui comentários.";
             } else {
                 echo "<div class='comentarios'>";
+            }
                 // listar comentários aqui
 
                 while ($comentario = mysqli_fetch_array($comentarios)) {
@@ -212,16 +211,16 @@
                 }
         ?>
                 <form action="salvar_comentario.php" method="post">
-                    <input type="hidden" name="idpostagem" value="<?php echo $idpostagem; ?>">
-                    <input type="text" name="texto" placeholder="Escreva um comentário..." required>
+                    <input type="hidden" name="idpostagem" value="<?php echo $idpostagem;?>">
+                    <input type="text" name="texto" placeholder="Escreva um comentário..." >
                     <input type="submit" value="Comentar">
                 </form>
 
         <?php
                 echo "</div>";
             }
-            echo "</div>";
-        }
+
+        
         ?>
     </div>
 </body>
