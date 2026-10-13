@@ -198,7 +198,8 @@
                 // listar comentários aqui
 
                 while ($comentario = mysqli_fetch_array($comentarios)) {
-                    $idusuario_comentario = $comentario['idusuario'];
+                $idcomentario = $comentario['idcomentario'];    
+                $idusuario_comentario = $comentario['idusuario'];
                     $texto_comentario = $comentario['texto'];
 
                     $foto_usuario_comentario = $comentario['foto'];
@@ -207,6 +208,7 @@
                     echo "<img src='imagem_usuario/$foto_usuario_comentario'>";
                     echo $texto_comentario;
                     echo "</div>";
+                    echo "<a href='excluir_comentario.php?idcomentario=$idcomentario'>Excluir</a>";
                 }
         ?>
                 <form action="salvar_comentario.php" method="post">
