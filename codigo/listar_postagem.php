@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        
         div {
             border-style: solid;
             padding: 10px;
@@ -77,6 +78,7 @@
 
                 while ($comentario = mysqli_fetch_array($comentarios)) {
                     $idusuario_comentario = $comentario['idusuario'];
+                    
                     $texto_comentario = $comentario['texto'];
 
                     $foto_usuario_comentario = $comentario['foto'];
