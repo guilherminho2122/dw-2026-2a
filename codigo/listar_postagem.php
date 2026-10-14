@@ -196,24 +196,24 @@
             }
                 // listar comentários aqui
 
-                while ($comentario = mysqli_fetch_array($comentarios)) {
-                $idcomentario = $comentario['idcomentario'];    
-                $idusuario_comentario = $comentario['idusuario'];
-                    $texto_comentario = $comentario['texto'];
+            while ($comentario = mysqli_fetch_array($comentarios)) {
+            $idcomentario = $comentario['idcomentario'];    
+            $idusuario_comentario = $comentario['idusuario'];
+            $texto_comentario = $comentario['texto'];
 
-                    $foto_usuario_comentario = $comentario['foto'];
+            $foto_usuario_comentario = $comentario['foto'];
 
-                    echo "<div>";
-                    echo "<img src='imagem_usuario/$foto_usuario_comentario'>";
-                    echo $texto_comentario;
-                    echo "</div>";
-                    echo "<a href='excluir_comentario.php?idcomentario=$idcomentario'>Excluir</a>";
+            echo "<div>";
+            echo "<img src='imagem_usuario/$foto_usuario_comentario'>";
+            echo $texto_comentario;
+            echo "</div>";
+            echo "<a href='excluir_comentario.php?idcomentario=$idcomentario'>Excluir</a>";
                 }
         ?>
-                <form action="salvar_comentario.php" method="post">
-                    <input type="hidden" name="idpostagem" value="<?php echo $idpostagem;?>">
-                    <input type="text" name="texto" placeholder="Escreva um comentário..." >
-                    <input type="submit" value="Comentar">
+            <form action="salvar_comentario.php" method="post">
+            <input type="hidden" name="idpostagem" value="<?php echo $idpostagem;?>">
+            <input type="text" name="texto" placeholder="Escreva um comentário..." >
+            <input type="submit" value="Comentar">
                 </form>
 
         <?php
