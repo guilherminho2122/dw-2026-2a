@@ -1,40 +1,22 @@
-min-height: 100vh: o body ocupa pelo menos a altura inteira da tela.
+font-family define a fonte. Se o computador não tiver Arial, usa qualquer fonte sem serifa (sans-serif).
 
-max-width: 350px e margin: 0 auto 15px auto: ficam com a mesma largura do card e centralizados, com 15px de espaço embaixo.
+padding: 30px dá 30px de espaço entre a borda da tela e o conteúdo, nos quatro lados.
 
-text-align: center: texto centralizado.
+max-width: 500px faz a lista ter no máximo 500px de largura. Em telas menores ela encolhe.
 
-max-width: 350px: largura máxima. Em telas menores ele encolhe.
+margin: 0 auto centraliza na tela. O 0 é o espaço em cima e embaixo, e o auto nos lados divide o espaço que sobra igualmente.
 
-margin: 0 auto: centraliza na tela.
+padding: 16px mantém o texto afastado da borda
 
-margin é o espaço fora do elemento, que afasta ele dos vizinhos.
+margin-bottom: 15px separa um card do próximo.
 
-padding é o espaço dentro do elemento, entre a borda e o conteúdo.
+border-radius: 50% transforma o quadrado em círculo.
+O margin-right afasta a foto do nome.
 
-Atalhos com vários valores: padding: 10px 0 0 0 vale para cima, direita, baixo e esquerda, nessa ordem. Com dois valores, como 30px 0, o primeiro é cima/baixo e o segundo é esquerda/direita.
+input[type="text"] pega só o campo de texto. O type entre colchetes filtra o tipo, para não pegar o botão nem o campo escondido.
+width: 70% é o que deixa o botão ao lado. O campo ocupa 70% da largura do card, e o botão cabe no resto.
 
-Quem ganha quando duas regras mandam em algo: uma classe (.postagem) vence um elemento simples (div). Quando as duas são do mesmo tipo, vale a que vem por último.
+cursor: pointer faz o mouse virar “mãozinha” quando passa por cima.
+border: none tira a borda padrão do navegador
 
-font-family: fonte da página (Segoe UI, ou Arial se não tiver).
-
-margin: 0: tira a margem padrão do navegador.
-
-padding: 30px 0: 30px de espaço em cima e embaixo, nada nos lados.
-
-text-align: center: centraliza.
-
-font-weight: 600: letra semi-negrito.
-
-margin-bottom: 25px: espaço entre o título e as postagens.
-
-border-radius: 16px: bem arredondado, formato de balão.
-
-display: flex: coloca o campo e o botão lado a lado, em vez de um embaixo do outro.
-
-gap: 8px: 8px de espaço entre eles.
-
-cursor: pointer: o mouse vira “mãozinha”.
-
-.comentarios input[type="submit"]:hover
-O :hover vale quando o mouse está em cima. O fundo escurece para #444.
+O :hover vale só quando o mouse está em cima do botão. O fundo escurece de #666 para #444, para mostrar que dá para clicar.

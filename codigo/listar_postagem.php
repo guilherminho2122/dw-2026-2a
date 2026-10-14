@@ -5,139 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             background: #f0f0f0;
-            margin: 0;
-            padding: 30px 0;
+            padding: 30px;
         }
 
         h2 {
             text-align: center;
             color: #333;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
-
-        div {
-            border-style: solid;
-            padding: 10px;
         }
 
         .postagens {
-            border: none;
             max-width: 500px;
             margin: 0 auto;
-            background: transparent;
-            padding: 0;
         }
 
         .postagem {
-            border: 1px solid #e0e0e0;
-            margin: 0 0 15px 0;
             background: white;
+            border: 1px solid #ddd;
             border-radius: 8px;
             padding: 16px;
+            margin-bottom: 15px;
         }
 
         .postagem img {
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            vertical-align: middle;
             margin-right: 10px;
-            border: 1px solid #ddd;
-            object-fit: cover;
-        }
-
-        .nome-autor {
-            font-weight: 600;
-            color: #333;
-        }
-
-        .horario {
-            border: none;
-            padding: 0;
-            font-size: 0.8em;
-            color: #999;
-            margin-top: 8px;
         }
 
         .comentarios {
-            border: none;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #ddd;
             margin-top: 12px;
-            padding: 10px 0 0 0;
-            background: transparent;
+            padding-top: 10px;
         }
 
         .comentarios img {
-            width: 26px;
-            height: 26px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
-            vertical-align: middle;
             margin-right: 8px;
-            border: 1px solid #ddd;
-            object-fit: cover;
         }
 
-        .comentarios > div {
-            border: none;
-            background: #f5f5f5;
-            border-radius: 16px;
+        .comentario {
+            background: #f0f0f0;
+            border-radius: 10px;
             padding: 8px 12px;
             margin: 6px 0;
-            display: block;
-            color: #555;
-            font-size: 0.9em;
         }
 
         .sem-comentarios {
-            border: none;
             color: #aaa;
-            background: transparent;
             font-style: italic;
-            font-size: 0.85em;
-            margin-top: 12px;
-            padding: 0;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
             padding-top: 10px;
         }
 
         .comentarios form {
-            border: none;
-            padding: 0;
             margin-top: 10px;
-            display: flex;
-            gap: 8px;
         }
 
         .comentarios input[type="text"] {
-            flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 16px;
-            outline: none;
-            font-size: 0.85em;
-            background: #fafafa;
-        }
-
-        .comentarios input[type="text"]:focus {
-            border-color: #999;
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
         }
 
         .comentarios input[type="submit"] {
-            padding: 8px 16px;
+            padding: 8px 15px;
             background: #666;
             color: white;
             border: none;
-            border-radius: 16px;
+            border-radius: 15px;
             cursor: pointer;
-            font-size: 0.85em;
         }
 
         .comentarios input[type="submit"]:hover {
@@ -190,37 +134,36 @@
             $comentarios = mysqli_query($conexao, $sql3);
 
             if (mysqli_num_rows($comentarios) == 0) {
-                echo "<br>Essa postagem não possui comentários.";
-            } else {
-                echo "<div class='comentarios'>";
+                echo "<div class='sem-comentarios'>Essa postagem não possui comentários.</div>";
             }
-                // listar comentários aqui
 
+            echo "<div class='comentarios'>";
+
+            // listar comentários aqui
             while ($comentario = mysqli_fetch_array($comentarios)) {
-            $idcomentario = $comentario['idcomentario'];    
-            $idusuario_comentario = $comentario['idusuario'];
-            $texto_comentario = $comentario['texto'];
+                $idcomentario = $comentario['idcomentario'];
+                $idusuario_comentario = $comentario['idusuario'];
+                $texto_comentario = $comentario['texto'];
 
-            $foto_usuario_comentario = $comentario['foto'];
+                $foto_usuario_comentario = $comentario['foto'];
 
-            echo "<div>";
-            echo "<img src='imagem_usuario/$foto_usuario_comentario'>";
-            echo $texto_comentario;
-            echo "</div>";
-            echo "<a href='excluir_comentario.php?idcomentario=$idcomentario'>Excluir</a>";
-                }
+                echo "<div class='comentario'>";
+                echo "<img src='imagem_usuario/$foto_usuario_comentario'>";
+                echo $texto_comentario;
+                echo "</div>";
+                echo "<a href='excluir_comentario.php?idcomentario=$idcomentario'>Excluir</a>";
+            }
         ?>
             <form action="salvar_comentario.php" method="post">
-            <input type="hidden" name="idpostagem" value="<?php echo $idpostagem;?>">
-            <input type="text" name="texto" placeholder="Escreva um comentário..." >
-            <input type="submit" value="Comentar">
-                </form>
+                <input type="hidden" name="idpostagem" value="<?php echo $idpostagem; ?>">
+                <input type="text" name="texto" placeholder="Escreva um comentário...">
+                <input type="submit" value="Comentar">
+            </form>
 
         <?php
-                echo "</div>";
-            }
-
-        
+            echo "</div>"; // fecha comentarios
+            echo "</div>"; // fecha postagem
+        }
         ?>
     </div>
 </body>
