@@ -102,7 +102,7 @@
             background: transparent;
             font-style: italic;
             font-size: 0.85em;
-            margin-top: 20px;
+            margin-top: 12px;
             padding: 0;
             border-top: 1px solid #eee;
             padding-top: 10px;
@@ -170,7 +170,6 @@
             $nome = $linha['nome'];
             $apelido = $linha['apelido'];
 
-            // abre a caixa da postagem
             echo "<div class='postagem'>";
 
             echo "<div>";
@@ -190,39 +189,38 @@
 
             $comentarios = mysqli_query($conexao, $sql3);
 
-            // aviso quando não tem comentários
             if (mysqli_num_rows($comentarios) == 0) {
-                echo "<div class='sem-comentarios'>Essa postagem não possui comentários.</div>";
+                echo "<br>Essa postagem não possui comentários.";
+            } else {
+                echo "<div class='comentarios'>";
             }
+                // listar comentários aqui
 
-            // abre a caixa dos comentários (sempre, para o formulário aparecer também)
-            echo "<div class='comentarios'>";
-
-            // listar comentários aqui
-            while ($comentario = mysqli_fetch_array($comentarios)) {
-                $idcomentario = $comentario['idcomentario'];
+                while ($comentario = mysqli_fetch_array($comentarios)) {
+                $idcomentario = $comentario['idcomentario'];    
                 $idusuario_comentario = $comentario['idusuario'];
-                $texto_comentario = $comentario['texto'];
+                    $texto_comentario = $comentario['texto'];
 
-                $foto_usuario_comentario = $comentario['foto'];
+                    $foto_usuario_comentario = $comentario['foto'];
 
-                echo "<div>";
-                echo "<img src='imagem_usuario/$foto_usuario_comentario'>";
-                echo $texto_comentario;
-                echo "</div>";
-                echo "<a href='excluir_comentario.php?idcomentario=$idcomentario'>Excluir</a>";
-            }
+                    echo "<div>";
+                    echo "<img src='imagem_usuario/$foto_usuario_comentario'>";
+                    echo $texto_comentario;
+                    echo "</div>";
+                    echo "<a href='excluir_comentario.php?idcomentario=$idcomentario'>Excluir</a>";
+                }
         ?>
-            <form action="salvar_comentario.php" method="post">
-                <input type="hidden" name="idpostagem" value="<?php echo $idpostagem; ?>">
-                <input type="text" name="texto" placeholder="Escreva um comentário...">
-                <input type="submit" value="Comentar">
-            </form>
+                <form action="salvar_comentario.php" method="post">
+                    <input type="hidden" name="idpostagem" value="<?php echo $idpostagem;?>">
+                    <input type="text" name="texto" placeholder="Escreva um comentário..." >
+                    <input type="submit" value="Comentar">
+                </form>
 
         <?php
-            echo "</div>"; // fecha .comentarios
-            echo "</div>"; // fecha .postagem
-        }
+                echo "</div>";
+            }
+
+        
         ?>
     </div>
 </body>
